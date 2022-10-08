@@ -16,13 +16,6 @@ val indexer = new StringIndexer().setInputCol("label").setOutputCol("labelIndex"
 
 val indexed = indexer.fit(pt7_sparse).transform(pt7_sparse)
 
-val indexer = new StringIndexer()
-  .setInputCol("label")
-  .setOutputCol("labelIndex")
-  .fit(pt7_sparse)
-
-val indexed = indexer.transform(pt7_sparse)
-
 val training_set = indexed.drop("label").withColumnRenamed("labelIndex", "label")
 
 val lr = new LogisticRegression().setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
