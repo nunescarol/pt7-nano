@@ -1,10 +1,12 @@
 import org.apache.spark.ml.classification.LogisticRegression
+import org.apache.spark.ml.attribute.Attribute
+import org.apache.spark.ml.feature.{IndexToString, StringIndexer}
 
 // Load training data
 val pt7_sparse = {
 	spark.read
 	.format("parquet")
-	.load("hdfs://master:8020/pt7-hash.parquet")
+	.load("hdfs://master:8020/bigdata/pt7-hash.parquet")
 	.withColumnRenamed("_1", "label")
 	.withColumnRenamed("_2", "url")
 	.withColumnRenamed("_3", "words")
