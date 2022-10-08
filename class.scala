@@ -5,9 +5,18 @@ val pt7_sparse = {
 	spark.read
 	.format("parquet")
 	.load("hdfs://master:8020/pt7-hash.parquet")
-	.withColumnRenamed("_1", "label)
+	.withColumnRenamed("_1", "label")
 	.withColumnRenamed("_2", "url")
-	.withColumnRenamed("_3", "words)
+	.withColumnRenamed("_3", "words")
+
+val indexer = new StringIndexer()
+  .setInputCol("label")
+  .setOutputCol("labelIndex")
+  .fit(pt7_sparse)
+
+val indexed = indexer.transform(pt7_sparse)
+
+indexed.show()
 
 val lr = new LogisticRegression()
   .setMaxIter(10)
