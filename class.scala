@@ -1,4 +1,4 @@
-  GNU nano 5.4                                           class.scala                                                    import org.apache.spark.ml.classification.LogisticRegression
+import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.ml.attribute.Attribute
 import org.apache.spark.ml.feature.{IndexToString, StringIndexer}
 
