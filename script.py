@@ -10,7 +10,7 @@ with open('plan.txt') as f:
         parametro = element.split(',')
 
         
-        command = 'spark-shell --master spark://master:7077 -i class.scala --conf \"spark.shuffle.file.buffer='+parametro[0]+'k\" --conf \"spark.io.compression.lz4.blockSize='+parametro[1]+'k\" --conf \"spark.sql.files.maxPartitionBytes='+parametro[2]+'k\" --conf \"spark.sql.shuffle.partitions='+parametro[3]+'\" --conf \"spark.reducer.maxSizeInFlight='+parametro[4]+'k\" --conf \"spark.default.parallelism='+parametro[5]+'\" --conf \"spark.broadcast.blockSize='+parametro[6]+'k\"'
+        command = 'spark-shell --master spark://master:7077 class.scala --conf \"spark.shuffle.file.buffer='+parametro[0]+'k\" --conf \"spark.io.compression.lz4.blockSize='+parametro[1]+'k\" --conf \"spark.sql.files.maxPartitionBytes='+parametro[2]+'k\" --conf \"spark.sql.shuffle.partitions='+parametro[3]+'\" --conf \"spark.reducer.maxSizeInFlight='+parametro[4]+'k\" --conf \"spark.default.parallelism='+parametro[5]+'\" --conf \"spark.broadcast.blockSize='+parametro[6]+'k\"'
 
         start_time = time.time()
         subprocess.run(command, shell=True)
