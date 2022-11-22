@@ -16,5 +16,5 @@ with open('plan.txt') as f:
         end_time = time.time()
 
         execution_time = end_time-start_time
-        with open('times.txt', 'w') as f:
+        with open('times.txt', 'a') as f:
             f.write(str(execution_time)+'\n')
