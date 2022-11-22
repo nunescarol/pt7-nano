@@ -25,4 +25,4 @@ val lrModel = lr.fit(training_set)
 
 // Print the coefficients and intercept for logistic regression
 println(s"Coefficients: ${lrModel.coefficientMatrix} Intercept: ${lrModel.interceptVector}")
-quit()
+System.exit(0)
