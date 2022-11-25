@@ -1,7 +1,7 @@
 import subprocess
 import time
 
-with open('plan.txt') as f:
+with open('new-plan.txt') as f:
     lines = f.read()
 
     vetor = lines.split('\n')
